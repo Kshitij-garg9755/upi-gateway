@@ -277,9 +277,11 @@ php artisan app:create-admin you@example.com
 composer run dev
 ```
 
+The development command starts the web server on `127.0.0.1:8081` with reload disabled, the queue worker, and the scheduler. Reload is disabled so the child PHP server keeps the local `PHPRC` configuration on Windows. Laravel Pail is intentionally not part of this command because it requires the `pcntl` extension, which is unavailable on Windows. View application logs in `storage/logs/laravel.log`.
+
 Access the application:
 
-- Application: `http://127.0.0.1:8000`
+- Application: `http://127.0.0.1:8081`
 - API Documentation: `http://127.0.0.1:8000/docs`
 
 These are local development addresses, not public demo URLs.
